@@ -6,13 +6,32 @@ pipeline {
     }
 
     stages {
-        stage('Testing') {
+
+        stage('Downloading dependencies') {
             steps {
                 bat "npm i"
+            }
+        }
+
+        stage('Testing with chrome') {
+            steps {
                 bat "npx cypress run --browser chrome"
             }
         }
+
+        stage('Testing with edge') {
+            steps {
+                bat "npx cypress run --browser edge"
+            }
+        }
+
+         stage('Testing with edge') {
+            steps {
+                echo "Deploying"
+            }
+        }
     }
+
 
     post {
         always {            
