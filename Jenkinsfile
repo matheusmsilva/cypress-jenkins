@@ -12,11 +12,12 @@ pipeline {
                 bat "npx cypress run --browser chrome"
             }
         }
-        
-        stage('Deploy'){
-            steps {
-                echo "Deploying"
-            }
+    }
+
+    post {
+        always {            
+            publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: true, reportDir: 'cypress/report', reportFiles: 'index.html', reportName: 'HTML Report', reportTitles: ''])
+            deleteDir()
         }
     }
 }
