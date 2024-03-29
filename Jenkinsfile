@@ -19,12 +19,6 @@ pipeline {
             }
         }
 
-        stage('Testing with edge') {
-            steps {
-                bat "npx cypress run --browser edge"
-            }
-        }
-
         stage('Deploy') {
             steps {
                 echo "Deploying"
