@@ -25,7 +25,7 @@ pipeline {
             }
         }
 
-         stage('Testing with edge') {
+        stage('Deploy') {
             steps {
                 echo "Deploying"
             }
