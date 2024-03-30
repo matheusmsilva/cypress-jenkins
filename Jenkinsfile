@@ -12,7 +12,7 @@ def getBuildUser() {
 pipeline {
     agent any
 
-    enviroment {
+    environment {
         BUILD_USER = ''
     }
     options {
